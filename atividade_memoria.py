@@ -1,16 +1,9 @@
 import random
 import copy
 
-# =========================
-# GERAR PARTIÇÕES E PROCESSOS
-# =========================
-
 particoes = [random.randint(50, 500) for _ in range(10)]
 processos = [random.randint(10, 300) for _ in range(4)]
 
-# =========================
-# MOSTRAR DADOS
-# =========================
 
 print("\nPARTIÇÕES GERADAS")
 for i, p in enumerate(particoes):
@@ -20,9 +13,6 @@ print("\nPROCESSOS GERADOS")
 for i, p in enumerate(processos):
     print(f"Processo P{i + 1} -> {p} KB")
 
-# =========================
-# FIRST FIT
-# =========================
 
 def first_fit(particoes, processos):
     part = copy.deepcopy(particoes)
@@ -60,9 +50,6 @@ def first_fit(particoes, processos):
 
     return resultado, total_fragmentacao
 
-# =========================
-# BEST FIT
-# =========================
 
 def best_fit(particoes, processos):
     part = copy.deepcopy(particoes)
@@ -102,9 +89,6 @@ def best_fit(particoes, processos):
 
     return resultado, total_fragmentacao
 
-# =========================
-# NEXT FIT
-# =========================
 
 def next_fit(particoes, processos):
     part = copy.deepcopy(particoes)
@@ -149,9 +133,6 @@ def next_fit(particoes, processos):
 
     return resultado, total_fragmentacao
 
-# =========================
-# MOSTRAR RESULTADOS
-# =========================
 
 def mostrar(nome, resultado, fragmentacao_total):
     print(f"\n{'='*50}")
@@ -168,10 +149,6 @@ def mostrar(nome, resultado, fragmentacao_total):
               f"{str(r['fragmentacao']) + ' KB'}")
 
     print(f"\nFragmentação Total: {fragmentacao_total} KB")
-
-# =========================
-# EXECUÇÃO
-# =========================
 
 resultado_ff, frag_ff = first_fit(particoes, processos)
 resultado_bf, frag_bf = best_fit(particoes, processos)
